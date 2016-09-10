@@ -1,0 +1,44 @@
+<?php
+return [
+    'components' => [
+        'db' => [
+            'class' => 'yii\db\Connection',
+            'dsn' => 'mysql:host=localhost;dbname=healthcare',
+            'username' => 'root',
+            'password' => 'ranbir',
+            'charset' => 'utf8',
+        ],
+        'mailer' => [
+            'class' => 'yii\swiftmailer\Mailer',
+            'viewPath' => '@common/mail',
+            //'useFileTransport' => false,
+            'transport' => [
+                'class' => 'Swift_SmtpTransport',
+                'host' => 'smtp.gmail.com',
+                'username' => 'utopeentesting@gmail.com',
+                'password' => 'jthwwrfetbtsiwgf',
+                'port' => '587',
+                'encryption' => 'tls',
+            ],
+        ],
+
+
+        'authClientCollection' => [
+            'class' => 'yii\authclient\Collection',
+            'clients' => [
+                'facebook' => [
+                    'class' => 'yii\authclient\clients\Facebook',
+                    'authUrl' => 'https://www.facebook.com/dialog/oauth?display=popup',
+                    'clientId' => '578407878985307',
+                    'clientSecret' => '6c10d4b85091fe909c81f5c1102ff8fa',
+                ],
+
+                'google' => [
+                    'class' => 'yii\authclient\clients\GoogleOAuth',
+                    'clientId' => '668235756398-cvgg9ofgr6em4q0cpeg9g8ojkuavg7no.apps.googleusercontent.com',
+                    'clientSecret' => 'A7w5o1iJymsVkqcb6DyXd_ps',
+                ],
+            ],
+        ],
+    ],
+];
